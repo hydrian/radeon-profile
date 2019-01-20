@@ -501,6 +501,9 @@ void radeon_profile::updateStatsTable() {
 
 void radeon_profile::refreshTooltip()
 {
+    if (!trayIcon->isVisible())
+        trayIcon->setVisible(true);
+
     QString tooltipdata = radeon_profile::windowTitle() + "\n" + tr("Current profile: ")+ device.currentPowerProfile + "  " + device.currentPowerLevel +"\n";
 
     for (short i = 0; i < ui->list_currentGPUData->topLevelItemCount(); i++)
